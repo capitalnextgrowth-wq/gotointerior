@@ -24,3 +24,34 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.travelling-text {
+  background: linear-gradient(
+    110deg,
+    #fafafa 30%,
+    #fafafa 40%,
+    #accff0 45%,
+    #ffffff 50%,
+    #94ec48 55%,
+    #fafafa 60%,
+    #fafafa 70%
+  );
+
+  background-size: 300% 100%;
+  background-position: 150% 0;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: textLight 80s ease-in-out infinite;
+}
+
+@keyframes textLight {
+  0% {
+    background-position: 150% 0;
+  }
+
+  100% {
+    background-position: -150% 0;
+  }
+}

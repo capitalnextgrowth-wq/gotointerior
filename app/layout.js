@@ -1,6 +1,14 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, MuseoModerno } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/component/NavBar";
+import Footer from "@/component/Footer";
 
+// Initialize the MuseoModerno font
+const museoModerno = MuseoModerno({ 
+  subsets: ["latin"], 
+  weight: ["700"],
+  display: "swap"
+});
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -22,7 +30,11 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Navbar />
+        {children}
+        <Footer/>
+        </body>
     </html>
   );
 }
