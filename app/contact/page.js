@@ -57,7 +57,7 @@ const jsonLd = {
 
 export default function ContactPage() {
   return (
-    <main className={` font-sans min-h-screen bg-[#fcfbef] pb-24 pt-20 text-[#1a1816]`}>
+    <main className={` min-h-screen bg-[#fcfbef] pb-24 pt-20 text-[#1a1816]`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-12">
@@ -69,7 +69,7 @@ export default function ContactPage() {
           <h1 className="m-0 text-[clamp(2.8rem,6.2vw,5rem)] font-normal leading-[1.02] tracking-[-0.035em]">
             Let’s Talk About<br />Your Space
           </h1>
-          <p className="m-0 mb-1 max-w-[330px] text-[13px] leading-[1.45] md:justify-self-end md:text-right">
+          <p className="m-0 mb-1 max-w-[330px] text-[15px] leading-[1.45] md:justify-self-end md:text-right">
             Have a project in mind? Tell us a little about your space, your vision, and what you’d like to create. We’ll take it from there.
           </p>
         </header>
@@ -90,7 +90,7 @@ export default function ContactPage() {
           <div className="flex flex-col justify-between gap-9 md:gap-16">
             <h2 id="contact-title" className="m-0 text-[clamp(2.4rem,4.6vw,3.9rem)] font-normal leading-[1.02] tracking-[-0.035em]">
               Contact Us
-              <sup className="relative top-[0.4em] ml-1.5 align-top text-[10px] font-normal tracking-normal text-[#8c867d]">[01]</sup>
+              <sup className="relative top-[0.4em] ml-1.5 align-top text-[15px] font-normal tracking-normal text-[#8c867d]">[01]</sup>
             </h2>
 
             <dl className="m-0 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">

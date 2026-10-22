@@ -64,7 +64,7 @@ export default function InteriorShowcase() {
   return (
     <div className="relative w-full">
       {/* Pinned/Sticky Visual Container */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center bg-zinc-900">
+      <div className="sticky top-0 h-screen w-full font-sans overflow-hidden flex items-center justify-center bg-zinc-900">
         
         {/* Animated Background Images */}
         <AnimatePresence mode="wait">

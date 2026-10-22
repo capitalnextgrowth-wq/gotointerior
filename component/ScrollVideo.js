@@ -13,53 +13,75 @@ export default function ScrollVideo() {
   useEffect(() => {
     const section = sectionRef.current;
     const video = videoRef.current;
+
     if (!section || !video) return;
 
     let trigger;
-    let target = 0; // time the scroll position asks for
-    let current = 0; // eased time we actually show
+    let target = 0;
+    let current = 0;
     let last = performance.now();
 
-    // Frame-rate independent easing: same feel on 60Hz and 120Hz screens.
-    // Raise SMOOTHNESS for snappier, lower it for a floatier, "buttery" feel.
-    const SMOOTHNESS = 6;
+    const isMobile = () =>
+      window.matchMedia("(max-width: 767px)").matches;
 
     const tick = () => {
       const now = performance.now();
       const dt = Math.min((now - last) / 1000, 0.05);
       last = now;
 
-      const ease = 1 - Math.exp(-SMOOTHNESS * dt);
+      // Faster response on mobile
+      const smoothness = isMobile() ? 18 : 6;
+      const ease = 1 - Math.exp(-smoothness * dt);
+
       current += (target - current) * ease;
 
-      // Only seek when the browser is ready and the change is visible
-      if (!video.seeking && Math.abs(video.currentTime - current) > 0.008) {
-        video.currentTime = current;
+      if (
+        !video.seeking &&
+        Number.isFinite(video.duration) &&
+        Math.abs(video.currentTime - current) > 0.008
+      ) {
+        video.currentTime = Math.max(
+          0,
+          Math.min(current, video.duration)
+        );
       }
     };
 
     const init = () => {
-      if (!Number.isFinite(video.duration) || video.duration === 0) return;
+      if (!Number.isFinite(video.duration) || video.duration <= 0) {
+        return;
+      }
+
       if (trigger) return;
 
-      // Prime the video so iOS/Safari allows seeking, then pause on frame 0.
-      video
-        .play()
+      video.play()
         .then(() => {
           video.pause();
           video.currentTime = 0;
         })
-        .catch(() => video.pause());
+        .catch(() => {
+          video.pause();
+        });
 
       trigger = ScrollTrigger.create({
         trigger: section,
         start: "top top",
-        end: () => `+=${window.innerHeight * 3}`,
+
+        // Mobile: finish in a short scroll.
+        // Desktop: retain the longer cinematic effect.
+        end: () =>
+          `+=${window.innerHeight * (isMobile() ? 0.7 : 3)}`,
+
         pin: true,
         pinSpacing: true,
         anticipatePin: 1,
         invalidateOnRefresh: true,
+
         onUpdate: (self) => {
+          target = self.progress * video.duration;
+        },
+
+        onRefresh: (self) => {
           target = self.progress * video.duration;
         },
       });
@@ -75,6 +97,7 @@ export default function ScrollVideo() {
     }
 
     const onLoad = () => ScrollTrigger.refresh();
+
     window.addEventListener("load", onLoad);
 
     return () => {
@@ -90,7 +113,6 @@ export default function ScrollVideo() {
       ref={sectionRef}
       className="relative h-screen w-full overflow-hidden bg-black"
     >
-      {/* Background video */}
       <video
         ref={videoRef}
         src="/vid.mp4"
@@ -101,11 +123,9 @@ export default function ScrollVideo() {
         aria-label="Scroll-controlled cinematic video"
       />
 
-      {/* Optional dark overlay */}
       <div className="pointer-events-none absolute inset-0 bg-black/20" />
 
-      {/* Hero content */}
-      <div className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center px-5 text-center text-white">
+      <div className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center font-sans justify-center px-5 text-center text-white">
         <h1 className="max-w-5xl text-4xl font-bold tracking-tight sm:text-6xl md:text-4xl">
           Thought to Reality
         </h1>

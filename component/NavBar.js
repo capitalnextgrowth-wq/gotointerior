@@ -129,7 +129,7 @@ export default function Navbar() {
           aria-controls="navbar-menu"
           className="absolute left-1/2 -translate-x-1/2
             text-[15px] font-medium tracking-wide
-            hover:opacity-70 transition-opacity"
+            hover:opacity-70 transition-opacity font-sans"
         >
           Menu
         </button>
@@ -141,17 +141,13 @@ export default function Navbar() {
         aria-hidden={!menuOpen}
         className={`fixed inset-0 z-50 flex flex-col
           bg-black/80 backdrop-blur-md text-white
-          px-6 py-5
+          px-6 py-5 font-sans tracking-wide
           transition-transform duration-500 ease-in-out
           ${
             menuOpen
               ? "translate-y-0"
               : "-translate-y-full pointer-events-none"
           }`}
-        style={{
-          fontFamily:
-            '"Helvetica Neue", Helvetica, Arial, sans-serif',
-        }}
       >
         {/* Menu Top Bar */}
         <div className="flex justify-between items-center w-full">
@@ -180,8 +176,8 @@ export default function Navbar() {
         {/* Navigation Links */}
         <div className="flex flex-col gap-3 mt-[15vh] mb-auto">
           {[
-            { label: "Projects", href: "/projects" },
-            { label: "Insights", href: "/insights" },
+            { label: "Gallery", href: "/gallery" },
+            { label: "Services", href: "/services" },
             { label: "About", href: "/about" },
             { label: "Contact", href: "/contact" },
           ].map((item) => (

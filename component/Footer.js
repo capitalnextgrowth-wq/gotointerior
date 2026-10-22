@@ -152,12 +152,12 @@ export default function Footer() {
       </div>
 
       {/* Massive Bottom Text (Same styling as Hero) */}
-      <div className="w-full flex justify-center mb-8 max-w-7xl mx-auto">
+      <div className="w-full flex justify-center mb-8 max-w-7xl mx-auto px-4">
         <h1
           className={museoModerno.className}
           style={{
             // Using clamp to make the size responsive across devices, hitting ~199px on desktop
-            fontSize: "clamp(3.5rem, 13vw, 164.06px)",
+            fontSize: "clamp(1.0rem, 13vw, 164.06px)",
             fontWeight: 700,
             letterSpacing: "-0.02em",
             lineHeight: "1em",
@@ -179,4 +179,4 @@ export default function Footer() {
       
     </footer>
   );
-}
+}                                                      

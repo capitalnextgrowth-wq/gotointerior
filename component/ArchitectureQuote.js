@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function ArchitectureQuote() {
   return (
-    <section className="relative h-screen min-h-[600px] w-full overflow-hidden bg-black">
+    <section className="relative h-screen min-h-[600px] w-full overflow-hidden bg-black font-sans">
       {/* ================================================================
           BACKGROUND IMAGE
       ================================================================= */}
@@ -19,14 +19,13 @@ export default function ArchitectureQuote() {
         }}
         className="absolute inset-0"
       >
-        <img
-          src="https://images.unsplash.com/photo-1760067538299-3f58e7a99fc5"
-          alt="Architecture interior"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
+       <div className="relative h-[100dvh] w-full overflow-hidden">
+  <img
+    src="https://images.unsplash.com/photo-1760067538299-3f58e7a99fc5"
+    alt="Architecture interior"
+    className="absolute inset-0 h-full w-full object-cover object-center"
+  />
+</div>
       </motion.div>
 
       {/* ================================================================

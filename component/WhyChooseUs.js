@@ -56,7 +56,7 @@ export default function WhyChooseUs() {
   };
 
   return (
-    <section className="w-full bg-[#fcfbef] px-5 py-16 md:px-10 lg:px-16 xl:px-24">
+    <section className="w-full bg-[#fcfbef] px-5 py-16 md:px-10 lg:px-16 xl:px-24 font-sans">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 xl:gap-16">
         {/* LEFT */}
         <div className="flex flex-col justify-center">

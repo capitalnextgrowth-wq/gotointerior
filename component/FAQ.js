@@ -41,7 +41,7 @@ export default function FAQ() {
           FAQ SECTION
       ============================================================ */}
 
-      <section className="relative z-20 bg-[#080808] px-5 py-20 text-white md:px-10 lg:px-[9.2vw] lg:py-24">
+      <section className="relative z-20 bg-[#080808] font-sans px-5 py-20 text-white md:px-10 lg:px-[9.2vw] lg:py-24">
         <div className="mx-auto max-w-[1200px]">
 
           {/* Top label */}
@@ -179,7 +179,7 @@ export default function FAQ() {
 
 function StudioRevealSection() {
   return (
-    <section className="relative h-[170vh] bg-[#080808]">
+    <section className="relative h-[170vh] bg-[#080808] font-sans">
 
       {/* ------------------------------------------------------------
           STICKY IMAGE
@@ -295,9 +295,9 @@ function StudioRevealSection() {
               "
             >
               Let’s create a thoughtful space
-              <br />
+              <br className="hidden sm:block" />
               that combines design, craft, and
-              <br />
+              <br className="hidden sm:block" />
               lasting quality.
             </motion.h2>
 
