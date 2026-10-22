@@ -5,6 +5,7 @@ import Hero from "@/component/Hero";
 import InteriorShowcase from "@/component/InteriorShowcase";
 import OurProcess from "@/component/OurProcess";
 import ProjectsSlider from "@/component/ProjectsSlider";
+import ScrollVideo from "@/component/ScrollVideo";
 import WhatWeDo from "@/component/WhatWeDo";
 import WhyChooseUs from "@/component/WhyChooseUs";
 import Image from "next/image";
@@ -13,7 +14,8 @@ export default function Home() {
   return (
    <>
    <Hero/>
-   <AboutStudio />
+   <AboutStudio homepage={true} />
+  <ScrollVideo/>
    <WhatWeDo/>
    <ProjectsSlider />
    <WhyChooseUs/>

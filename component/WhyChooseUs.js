@@ -4,67 +4,62 @@ import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 
-const services = [
+// Replace each `image` with your own photo (e.g. files in /public/images/)
+const reasons = [
   {
     id: 1,
-    title: "Interior Design Consultation",
+    title: "Everything Under One Roof",
     description:
-      "Personalized design guidance to define your vision, style, colors, materials, and overall direction.",
-    image: "/images/interior-1.jpg",
+      "Curtains, blinds, sofas, wall panels, flooring, greenery and decor, all from one team. One point of contact means a faster project and a look that fits together.",
+    image: "https://images.pexels.com/photos/276528/pexels-photo-276528.jpeg",
   },
   {
     id: 2,
-    title: "Residential Interior Design",
+    title: "Customized to Your Space",
     description:
-      "Thoughtfully designed residential spaces that balance aesthetics, comfort, functionality, and your personal lifestyle.",
-    image: "/images/interior-2.jpg",
+      "Every piece is made to your measurements, colours and style, so it fits your room instead of you adjusting the room to fit it.",
+    image: "https://images.pexels.com/photos/6438746/pexels-photo-6438746.jpeg",
   },
   {
     id: 3,
-    title: "Commercial Interior Design",
+    title: "Quality Materials & Finish",
     description:
-      "Strategic commercial interiors designed to create a strong identity while improving usability and customer experience.",
-    image: "/images/interior-3.jpg",
+      "We choose durable materials and check the finish on every piece, so your interiors look good on day one and stay that way.",
+    image: "https://images.pexels.com/photos/6588575/pexels-photo-6588575.jpeg",
   },
   {
     id: 4,
-    title: "Space Planning & Layout Design",
+    title: "Neat, Expert Installation",
     description:
-      "Strategic planning of layouts to improve flow, maximize usable space, and create a natural balance between form and function.",
-    image: "/images/interior-4.jpg",
+      "Our team handles measuring, fitting and installation with care, and leaves your space clean when the work is done.",
+    image: "https://images.pexels.com/photos/11806490/pexels-photo-11806490.jpeg",
   },
   {
     id: 5,
-    title: "Material & Finish Selection",
+    title: "Clear Pricing & On-Time Delivery",
     description:
-      "Carefully selected materials, textures, colors, and finishes that bring consistency and character to every space.",
-    image: "/images/interior-5.jpg",
+      "You get a clear quote before work begins, with no surprise charges, and we stick to the timeline we agree with you.",
+    image: "https://images.pexels.com/photos/6580416/pexels-photo-6580416.jpeg",
   },
 ];
 
-const defaultImage = "/images/interior-main.jpg";
+const defaultImage = "https://images.pexels.com/photos/7148835/pexels-photo-7148835.jpeg";
 
 export default function WhyChooseUs() {
-  const [activeIndex, setActiveIndex] = useState(3);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const activeImage =
-    activeIndex !== null
-      ? services[activeIndex].image
-      : defaultImage;
+    activeIndex !== null ? reasons[activeIndex].image : defaultImage;
 
   const handleAccordion = (index) => {
-    setActiveIndex((current) =>
-      current === index ? null : index
-    );
+    setActiveIndex((current) => (current === index ? null : index));
   };
 
   return (
     <section className="w-full bg-[#fcfbef] px-5 py-16 md:px-10 lg:px-16 xl:px-24">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 xl:gap-16">
-        
         {/* LEFT */}
         <div className="flex flex-col justify-center">
-          
           {/* Label */}
           <div className="mb-7 flex items-center gap-3">
             <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#f5f1cc] text-[13px]">
@@ -72,7 +67,7 @@ export default function WhyChooseUs() {
             </span>
 
             <span className="text-sm font-medium text-[#171717]">
-              Services
+              Why Us
             </span>
           </div>
 
@@ -83,25 +78,22 @@ export default function WhyChooseUs() {
 
           {/* Description */}
           <p className="mt-7 max-w-[470px] text-[17px] leading-[1.35] text-[#454545] md:text-[18px]">
-            From concept to completion, every decision
+            From the first measurement to the final touch,
             <br className="hidden md:block" />
-            is guided by purpose, precision, and care.
+            we make your interiors easy to plan and a pleasure to live in.
           </p>
 
           {/* Accordions */}
           <div className="mt-12 flex flex-col gap-3">
-            {services.map((service, index) => {
+            {reasons.map((reason, index) => {
               const isOpen = activeIndex === index;
 
               return (
                 <motion.div
-                  key={service.id}
+                  key={reason.id}
                   layout
                   transition={{
-                    layout: {
-                      duration: 0.35,
-                      ease: [0.22, 1, 0.36, 1],
-                    },
+                    layout: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
                   }}
                   className="overflow-hidden rounded-[9px] bg-[#f5f1cc]/40"
                 >
@@ -109,20 +101,16 @@ export default function WhyChooseUs() {
                   <button
                     type="button"
                     onClick={() => handleAccordion(index)}
+                    aria-expanded={isOpen}
                     className="flex w-full cursor-pointer items-center justify-between px-3 py-[16px] text-left md:px-3.5 md:py-[17px]"
                   >
                     <span className="text-[16px] font-medium leading-none text-[#151515] md:text-[17px]">
-                      {service.title}
+                      {reason.title}
                     </span>
 
                     <motion.span
-                      animate={{
-                        rotate: isOpen ? 45 : 0,
-                      }}
-                      transition={{
-                        duration: 0.25,
-                        ease: "easeOut",
-                      }}
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
                       className="flex h-6 w-6 items-center justify-center text-[25px] font-light leading-none"
                     >
                       +
@@ -133,48 +121,23 @@ export default function WhyChooseUs() {
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
-                        initial={{
-                          height: 0,
-                          opacity: 0,
-                        }}
-                        animate={{
-                          height: "auto",
-                          opacity: 1,
-                        }}
-                        exit={{
-                          height: 0,
-                          opacity: 0,
-                        }}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
                         transition={{
-                          height: {
-                            duration: 0.35,
-                            ease: [0.22, 1, 0.36, 1],
-                          },
-                          opacity: {
-                            duration: 0.2,
-                          },
+                          height: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+                          opacity: { duration: 0.2 },
                         }}
                       >
                         <div className="px-3 pb-3 md:px-3">
                           <motion.div
-                            initial={{
-                              y: -8,
-                              opacity: 0,
-                            }}
-                            animate={{
-                              y: 0,
-                              opacity: 1,
-                            }}
-                            exit={{
-                              y: -5,
-                              opacity: 0,
-                            }}
-                            transition={{
-                              duration: 0.25,
-                            }}
+                            initial={{ y: -8, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: -5, opacity: 0 }}
+                            transition={{ duration: 0.25 }}
                             className="rounded-[8px] bg-[#f5f1cc] px-3 py-3 text-[15px] leading-[1.35] text-[#242424] md:px-3.5 md:py-3.5"
                           >
-                            {service.description}
+                            {reason.description}
                           </motion.div>
                         </div>
                       </motion.div>
@@ -189,34 +152,22 @@ export default function WhyChooseUs() {
         {/* RIGHT IMAGE */}
         <div className="relative">
           <div className="relative aspect-[1.08/1] w-full overflow-hidden rounded-[17px] bg-[#ddd] lg:aspect-[1.02/1]">
-            
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeImage}
-                initial={{
-                  opacity: 0,
-                  scale: 1.04,
-                  x: 25,
-                }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  x: 0,
-                }}
-                exit={{
-                  opacity: 0,
-                  scale: 0.98,
-                  x: -25,
-                }}
-                transition={{
-                  duration: 0.55,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
+                initial={{ opacity: 0, scale: 1.04, x: 25 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                exit={{ opacity: 0, scale: 0.98, x: -25 }}
+                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                 className="absolute inset-0"
               >
                 <Image
                   src={activeImage}
-                  alt="Interior design"
+                  alt={
+                    activeIndex !== null
+                      ? reasons[activeIndex].title
+                      : "Our interior work"
+                  }
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 55vw"
@@ -227,29 +178,26 @@ export default function WhyChooseUs() {
 
             {/* Bottom image previews */}
             <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2">
-              {services.map((service, index) => {
+              {reasons.map((reason, index) => {
                 const isActive = activeIndex === index;
 
                 return (
                   <motion.button
-                    key={service.id}
+                    key={reason.id}
                     type="button"
                     onClick={() => handleAccordion(index)}
+                    aria-label={reason.title}
                     animate={{
                       scale: isActive ? 1.08 : 1,
                       opacity: isActive ? 1 : 0.9,
                     }}
-                    transition={{
-                      duration: 0.25,
-                    }}
+                    transition={{ duration: 0.25 }}
                     className={`relative h-[52px] w-[52px] overflow-hidden rounded-full border-2 ${
-                      isActive
-                        ? "border-white"
-                        : "border-white/60"
+                      isActive ? "border-white" : "border-white/60"
                     }`}
                   >
                     <Image
-                      src={service.image}
+                      src={reason.image}
                       alt=""
                       fill
                       sizes="52px"

@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
 
 // Helper component for individual words to handle their own animation values
 const Word = ({ children, progress, range }) => {
@@ -23,7 +24,7 @@ const Word = ({ children, progress, range }) => {
   );
 };
 
-export default function AboutStudio() {
+export default function AboutStudio({homepage=false}) {
   const containerRef = useRef(null);
 
   // Track scroll progress of this specific section
@@ -88,29 +89,26 @@ export default function AboutStudio() {
           </div>
 
           {/* Link */}
-          <div>
-            <a 
-              href="#" 
+         {homepage ? <div>
+            <Link 
+              href="/about" 
               className="text-sm font-medium underline hover:text-black/70 transition-colors font-sans inline-flex items-center"
             >
               Learn More About Our Studio 
               <span className="ml-2 text-lg leading-none">+</span>
-            </a>
+            </Link>
+          </div> : 
+          <div>
+            <Link 
+              href="/contact" 
+              className="text-sm font-medium underline hover:text-black/70 transition-colors font-sans inline-flex items-center"
+            >
+              Connect for the project 
+              <span className="ml-2 text-lg leading-none">+</span>
+            </Link>
           </div>
-        </div>
-      </div>
-
-      {/* Bottom Logos Section */}
-      <div className="mt-24 pt-12 border-t border-white/10 w-full">
-        <div className="flex flex-wrap justify-between items-center gap-8 opacity-40 grayscale max-w-[1600px] mx-auto">
-          {/* Placeholder for Logos - Replace with your actual logo SVGs/Images */}
-          {[1, 2, 3, 4, 5].map((item) => (
-            <div key={item} className="flex items-center space-x-2">
-               {/* Dummy Logo Icon */}
-              <div className="w-6 h-6 rounded-full border-[2px] border-dashed border-black" />
-              <span className="text-sm font-semibold tracking-wider">Logoipsum</span>
-            </div>
-          ))}
+          
+          }
         </div>
       </div>
     </section>

@@ -37,21 +37,70 @@ export default function Footer() {
             We design interiors that balance comfort and clarity, crafting spaces defined by purpose, proportion, and lasting character.
           </p>
 
-          {/* Social Icons */}
-          <div className="flex gap-3 mb-8">
-            {/* Instagram */}
-            <a href="#" className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-black transition-colors">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            </a>
-            {/* X (Twitter) */}
-            <a href="#" className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-black transition-colors">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
-            </a>
-            {/* LinkedIn */}
-            <a href="#" className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-black transition-colors">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-            </a>
-          </div>
+     <div className="flex gap-3 mb-8">
+  {/* Facebook */}
+  <a
+    href="https://www.facebook.com/share/1CtNyFLxaB/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook"
+    className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+  >
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M13.5 21v-8.2h2.76l.41-3.2H13.5V7.56c0-.93.26-1.56 1.59-1.56h1.7V3.14C16.5 3.05 15.45 3 14.22 3c-2.57 0-4.33 1.57-4.33 4.45V9.6H7v3.2h2.89V21h3.61Z" />
+    </svg>
+  </a>
+
+  {/* Instagram */}
+  <a
+    href="https://www.instagram.com/gotointeriors1?utm_source=gr&igsh=c3EwZmdjODlleDhn"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+    className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+  >
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+    </svg>
+  </a>
+
+  {/* YouTube */}
+  <a
+    href="https://youtube.com/@gotointeriors?si=Tfjlx41yQ2Tszlsb"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="YouTube"
+    className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+  >
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z" />
+    </svg>
+  </a>
+</div>
 
           {/* Newsletter Form */}
           <form className="flex items-center gap-3" onSubmit={(e) => e.preventDefault()}>
@@ -75,22 +124,16 @@ export default function Footer() {
           {/* Site Links */}
           <div className="flex flex-col gap-4">
             <h4 className="text-white/60 text-sm mb-2">Site</h4>
-            <Link href="#" className="text-[15px] hover:text-white/70 transition-colors w-max">Projects</Link>
+            <Link href="/projects" className="text-[15px] hover:text-white/70 transition-colors w-max">Projects</Link>
             <Link href="#" className="text-[15px] hover:text-white/70 transition-colors w-max">Blog</Link>
-            <Link href="#" className="text-[15px] hover:text-white/70 transition-colors w-max">About</Link>
-            <Link href="#" className="text-[15px] hover:text-white/70 transition-colors w-max">Contact</Link>
+            <Link href="/about" className="text-[15px] hover:text-white/70 transition-colors w-max">About</Link>
+            <Link href="/contact" className="text-[15px] hover:text-white/70 transition-colors w-max">Contact</Link>
           </div>
 
-          {/* Legal Links */}
-          <div className="flex flex-col gap-4">
-            <h4 className="text-white/60 text-sm mb-2">Legal</h4>
-            <Link href="#" className="text-[15px] hover:text-white/70 transition-colors w-max">Privacy Policy</Link>
-            <Link href="#" className="text-[15px] hover:text-white/70 transition-colors w-max">Cookie Policy</Link>
-            <Link href="#" className="text-[15px] hover:text-white/70 transition-colors w-max">Terms and Conditions</Link>
-          </div>
+      
 
           {/* Location Map */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col col-span-2 gap-4">
             <h4 className="text-white/60 text-sm mb-2">Location</h4>
             <div className="w-full h-32 md:h-full min-h-[120px] rounded-xl overflow-hidden border border-white/20 opacity-80 hover:opacity-100 transition-opacity duration-300">
               <iframe

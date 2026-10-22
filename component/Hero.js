@@ -2,6 +2,7 @@
 import React from "react";
 import { MuseoModerno } from "next/font/google";
 import { PlusIcon } from "lucide-react";
+import Link from "next/link";
 
 // Initialize the MuseoModerno font
 const museoModerno = MuseoModerno({ 
@@ -32,9 +33,9 @@ export default function Hero() {
           <p className="text-white/90 text-sm md:text-base leading-relaxed mb-6 font-medium">
             Thoughtfully created interiors that elevate everyday living through timeless design and refined detail.
           </p>
-          <button className="bg-white/20 backdrop-blur-md text-white border border-white/40 px-8 flex items-center gap-1 justify-center py-3 rounded-full text-sm font-semibold hover:bg-gray-200/30 transition-colors">
+          <Link href={'/contact'} className="bg-white/20 w-fit backdrop-blur-md text-white border border-white/40 px-8 flex items-center gap-1 justify-center py-3 rounded-full text-sm font-semibold hover:bg-gray-200/30 transition-colors">
             Start a Project <PlusIcon size={16} />
-          </button>
+          </Link>
         </div>
 
         {/* Massive Bottom Text */}
