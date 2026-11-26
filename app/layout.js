@@ -2,6 +2,7 @@ import { Epunda_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/component/NavBar";
 import Footer from "@/component/Footer";
+import PageTransition from "@/component/PageTransition";
 
 const montserrat = Epunda_Sans({
   subsets: ["latin"],
@@ -19,7 +20,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${montserrat.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">
         <Navbar />
+        <PageTransition>
         {children}
+        </PageTransition>
         <Footer />
       </body>
     </html>
